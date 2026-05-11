@@ -1,0 +1,1690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Samyog — India's SRO for Responsible AI Data</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0f1923;
+    --cream: #f7f4ee;
+    --teal: #1a6b6b;
+    --teal-light: #2a9090;
+    --gold: #c8860a;
+    --gold-light: #f0a820;
+    --muted: #6b7280;
+    --border: #e0dbd0;
+    --white: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(247, 244, 238, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+  }
+
+  .nav-logo {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--teal);
+    text-decoration: none;
+    letter-spacing: -0.5px;
+  }
+
+  .nav-logo span { color: var(--gold); }
+
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+    align-items: center;
+  }
+
+  .nav-links a {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+    text-decoration: none;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+
+  .nav-links a:hover { opacity: 1; }
+
+  .nav-cta {
+    background: var(--teal) !important;
+    color: var(--white) !important;
+    padding: 8px 20px;
+    border-radius: 6px;
+    opacity: 1 !important;
+    font-size: 13px !important;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--teal-light) !important; }
+
+  /* HERO */
+  .hero {
+    padding: 160px 48px 100px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  .hero-eyebrow {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 24px;
+  }
+
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(40px, 5vw, 64px);
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: -1.5px;
+    color: var(--ink);
+    margin-bottom: 28px;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--teal);
+  }
+
+  .hero-body {
+    font-size: 17px;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 40px;
+    max-width: 480px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--teal);
+    color: var(--white);
+    padding: 14px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover { background: var(--teal-light); transform: translateY(-1px); }
+
+  .btn-secondary {
+    color: var(--teal);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    border-bottom: 1px solid var(--teal);
+    padding-bottom: 2px;
+    transition: opacity 0.2s;
+  }
+
+  .btn-secondary:hover { opacity: 0.7; }
+
+  .hero-visual {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-diagram {
+    width: 100%;
+    max-width: 440px;
+  }
+
+  /* STAT STRIP */
+  .stat-strip {
+    background: var(--teal);
+    padding: 0 48px;
+  }
+
+  .stat-strip-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: stretch;
+  }
+
+  .stat-item {
+    flex: 1;
+    padding: 28px 24px;
+    text-align: center;
+  }
+
+  .stat-number {
+    font-family: 'Fraunces', serif;
+    font-size: 36px;
+    font-weight: 300;
+    color: var(--white);
+    letter-spacing: -1px;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.65);
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  .stat-divider {
+    width: 1px;
+    background: rgba(255,255,255,0.15);
+    margin: 20px 0;
+    flex-shrink: 0;
+  }
+
+  /* CREDIBILITY STRIP */
+  .credibility {
+    background: var(--ink);
+    color: var(--white);
+    padding: 32px 48px;
+  }
+
+  .credibility-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+
+  .credibility-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.5;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .credibility-items {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .credibility-item {
+    font-size: 13px;
+    opacity: 0.75;
+    line-height: 1.4;
+    max-width: 200px;
+  }
+
+  .credibility-item strong {
+    display: block;
+    opacity: 1;
+    font-weight: 500;
+    margin-bottom: 2px;
+  }
+
+  /* SECTION BASE */
+  section {
+    padding: 96px 48px;
+  }
+
+  .section-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-eyebrow {
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+
+  .section-title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 300;
+    letter-spacing: -1px;
+    line-height: 1.15;
+    margin-bottom: 20px;
+  }
+
+  .section-lead {
+    font-size: 17px;
+    color: var(--muted);
+    max-width: 620px;
+    line-height: 1.7;
+  }
+
+  /* DEPA FRAMEWORKS */
+  .frameworks {
+    background: var(--white);
+  }
+
+  .frameworks-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-top: 64px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .framework-card {
+    padding: 56px 48px;
+    background: var(--white);
+    position: relative;
+    transition: background 0.2s;
+  }
+
+  .framework-card:first-child {
+    border-right: 1px solid var(--border);
+  }
+
+  .framework-card:hover { background: #fafaf8; }
+
+  .framework-tag {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 4px 12px;
+    border-radius: 100px;
+    margin-bottom: 28px;
+  }
+
+  .tag-training {
+    background: #e8f4f4;
+    color: var(--teal);
+  }
+
+  .tag-inferencing {
+    background: #fef3e2;
+    color: var(--gold);
+  }
+
+  .framework-card h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 30px;
+    font-weight: 400;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+
+  .framework-card p {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 32px;
+  }
+
+  .framework-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 36px;
+  }
+
+  .framework-bullets li {
+    font-size: 14px;
+    color: var(--ink);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .framework-bullets li::before {
+    content: '→';
+    color: var(--teal);
+    font-weight: 500;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .framework-link {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--teal);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(26,107,107,0.3);
+    padding-bottom: 2px;
+    transition: border-color 0.2s;
+  }
+
+  .framework-link:hover { border-color: var(--teal); }
+
+  .connector-strip {
+    background: var(--cream);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 24px 48px;
+    text-align: center;
+    font-size: 14px;
+    color: var(--muted);
+    margin: 64px 0 0;
+  }
+
+  .connector-strip strong { color: var(--ink); }
+
+  /* IMPACT */
+  .impact { background: var(--cream); }
+
+  .impact-sectors {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 64px;
+  }
+
+  .sector-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 36px 28px;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+
+  .sector-card:hover {
+    box-shadow: 0 8px 32px rgba(0,0,0,0.07);
+    transform: translateY(-3px);
+  }
+
+  .sector-icon {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+
+  .sector-card h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 10px;
+  }
+
+  .sector-card p {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* ABOUT SAMYOG */
+  .about {
+    background: var(--ink);
+    color: var(--white);
+  }
+
+  .about .section-eyebrow { color: var(--gold-light); }
+  .about .section-title { color: var(--white); }
+  .about .section-lead { color: rgba(255,255,255,0.6); }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    margin-top: 64px;
+    align-items: start;
+  }
+
+  .about-desc {
+    font-size: 16px;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.75;
+    margin-bottom: 32px;
+  }
+
+  .ecosystem-roles {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .role-chip {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    padding: 16px 20px;
+  }
+
+  .role-chip .role-abbr {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    color: var(--gold-light);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .role-chip .role-name {
+    font-size: 13px;
+    color: rgba(255,255,255,0.7);
+  }
+
+  .samyog-center {
+    background: rgba(42,144,144,0.12);
+    border: 1px solid rgba(42,144,144,0.3);
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .samyog-center .role-abbr { color: var(--teal-light); font-size: 13px; }
+  .samyog-center .role-name { font-size: 14px; color: rgba(255,255,255,0.9); }
+
+  /* SERVICES */
+  .services { background: var(--white); }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 64px;
+  }
+
+  .service-card {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 36px 32px;
+    transition: border-color 0.2s;
+  }
+
+  .service-card:hover { border-color: var(--teal); }
+
+  .service-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: #e8f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .service-card h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 19px;
+    font-weight: 400;
+    margin-bottom: 10px;
+  }
+
+  .service-card p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  /* RESOURCES */
+  .resources { background: var(--cream); }
+
+  .resources-tabs {
+    display: flex;
+    gap: 0;
+    margin-top: 48px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 48px;
+  }
+
+  .tab-btn {
+    padding: 12px 28px;
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: var(--muted);
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .tab-btn.active {
+    color: var(--teal);
+    border-bottom-color: var(--teal);
+  }
+
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  .videos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .video-embed {
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--ink);
+    aspect-ratio: 16/9;
+  }
+
+  .video-embed iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+  }
+
+  .video-title {
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 12px;
+    color: var(--ink);
+  }
+
+  .blogs-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .blog-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 28px 24px;
+    text-decoration: none;
+    color: var(--ink);
+    transition: box-shadow 0.2s, transform 0.15s;
+    display: block;
+  }
+
+  .blog-card:hover {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    transform: translateY(-2px);
+  }
+
+  .blog-tag {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--teal);
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+
+  .blog-card h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.4;
+    margin-bottom: 12px;
+  }
+
+  .blog-arrow {
+    font-size: 13px;
+    color: var(--teal);
+    font-weight: 500;
+  }
+
+  /* TEAM */
+  .team { background: var(--white); }
+
+  .team-section-title {
+    font-family: 'Fraunces', serif;
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 28px;
+    color: var(--muted);
+    padding-top: 48px;
+    border-top: 1px solid var(--border);
+  }
+
+  .team-section-title:first-child {
+    padding-top: 0;
+    border-top: none;
+  }
+
+  .team-grid {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+  }
+
+  .team-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 120px;
+  }
+
+  .team-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 12px;
+    background: var(--border);
+    border: 2px solid var(--border);
+  }
+
+  .team-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.3;
+    margin-bottom: 4px;
+  }
+
+  .team-role {
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .team-card a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .team-card a:hover .team-name { color: var(--teal); }
+
+  /* ENGAGEMENT */
+  .engagement {
+    background: var(--teal);
+    color: var(--white);
+  }
+
+  .engagement .section-eyebrow { color: rgba(255,255,255,0.6); }
+  .engagement .section-title { color: var(--white); }
+
+  .engagement-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 56px;
+  }
+
+  .engagement-card {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 12px;
+    padding: 32px 24px;
+    text-align: center;
+    text-decoration: none;
+    color: var(--white);
+    transition: background 0.2s, transform 0.15s;
+    display: block;
+  }
+
+  .engagement-card:hover {
+    background: rgba(255,255,255,0.18);
+    transform: translateY(-3px);
+  }
+
+  .engagement-card-icon {
+    font-size: 28px;
+    margin-bottom: 16px;
+  }
+
+  .engagement-card h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 17px;
+    font-weight: 400;
+    margin-bottom: 8px;
+  }
+
+  .engagement-card p {
+    font-size: 13px;
+    opacity: 0.7;
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+
+  .engagement-card .card-link {
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 500;
+    opacity: 0.8;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    padding-bottom: 2px;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    color: rgba(255,255,255,0.6);
+    padding: 56px 48px 36px;
+  }
+
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 64px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    margin-bottom: 32px;
+  }
+
+  .footer-brand {
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    color: var(--white);
+    margin-bottom: 12px;
+    font-weight: 400;
+  }
+
+  .footer-tagline {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .footer-email {
+    font-size: 14px;
+    color: var(--gold-light);
+    text-decoration: none;
+  }
+
+  .footer-col h5 {
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 16px;
+  }
+
+  .footer-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-col ul a {
+    font-size: 14px;
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-col ul a:hover { color: var(--white); }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-copy { font-size: 13px; }
+
+  .social-links {
+    display: flex;
+    gap: 20px;
+  }
+
+  .social-links a {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .social-links a:hover { color: var(--white); }
+
+  /* LINEAGE */
+  .lineage { background: var(--cream); }
+
+  .lineage-track {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    margin-top: 56px;
+    margin-bottom: 56px;
+  }
+
+  .lineage-card {
+    flex: 1;
+    padding: 28px 24px;
+    border-radius: 12px;
+    position: relative;
+  }
+
+  .lineage-past {
+    background: var(--white);
+    border: 1px solid var(--border);
+  }
+
+  .lineage-now {
+    background: var(--ink);
+    border: 1px solid var(--ink);
+  }
+
+  .lineage-now .lineage-year { color: var(--gold-light); }
+  .lineage-now .lineage-name { color: var(--white); }
+  .lineage-now .lineage-desc { color: rgba(255,255,255,0.6); }
+
+  .lineage-year {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 8px;
+  }
+
+  .lineage-name {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+
+  .lineage-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .lineage-arrow {
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    color: var(--border);
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+
+  .lineage-family {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+  }
+
+  .lineage-family-label {
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .lineage-family-chips {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .family-chip {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--teal);
+    text-decoration: none;
+    padding: 6px 14px;
+    border: 1px solid rgba(26,107,107,0.25);
+    border-radius: 100px;
+    background: rgba(26,107,107,0.04);
+    transition: background 0.2s, border-color 0.2s;
+  }
+
+  .family-chip:hover {
+    background: rgba(26,107,107,0.1);
+    border-color: var(--teal);
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-eyebrow { animation: fadeUp 0.6s ease both; }
+  .hero h1 { animation: fadeUp 0.6s 0.1s ease both; }
+  .hero-body { animation: fadeUp 0.6s 0.2s ease both; }
+  .hero-actions { animation: fadeUp 0.6s 0.3s ease both; }
+  .hero-visual { animation: fadeUp 0.8s 0.2s ease both; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; padding: 120px 24px 64px; gap: 48px; min-height: auto; }
+    .hero-visual { order: -1; }
+    section { padding: 64px 24px; }
+    .frameworks-grid { grid-template-columns: 1fr; }
+    .framework-card:first-child { border-right: none; border-bottom: 1px solid var(--border); }
+    .impact-sectors { grid-template-columns: 1fr 1fr; }
+    .services-grid { grid-template-columns: 1fr; }
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .engagement-cards { grid-template-columns: 1fr 1fr; }
+    .videos-grid, .blogs-list { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr; gap: 32px; }
+    .credibility { padding: 24px; }
+    .credibility-inner { flex-direction: column; gap: 20px; }
+    .stat-strip { padding: 0 16px; }
+    .stat-strip-inner { flex-wrap: wrap; }
+    .stat-item { min-width: 120px; padding: 20px 12px; }
+    .stat-divider { display: none; }
+    .lineage-track { flex-direction: column; gap: 12px; }
+    .lineage-arrow { display: none; }
+    .lineage-family { flex-direction: column; align-items: flex-start; gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Samyog<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About Samyog</a></li>
+    <li><a href="#resources">Resources</a></li>
+    <li><a href="#team">Team</a></li>
+    <li><a href="#contact" class="nav-cta">Get in touch</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section style="padding: 0;">
+  <div class="hero">
+    <div class="hero-text">
+      <div class="hero-eyebrow">India's Self-Regulatory Organisation for AI Data</div>
+      <h1>Powering <em>trusted</em> AI on private institutional data</h1>
+      <p class="hero-body">Samyog is operationalising DEPA — India's data empowerment framework — to unlock novel, privacy-preserving pathways for AI training and inference on sensitive institutional datasets, at scale.</p>
+      <div class="hero-actions">
+        <a href="#frameworks" class="btn-primary">Explore DEPA</a>
+        <a href="#about" class="btn-secondary">About Samyog →</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <!-- Vertical stack diagram -->
+      <svg class="hero-diagram" viewBox="0 0 400 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0" y="0" width="400" height="480" rx="16" fill="#ffffff" stroke="#e0dbd0"/>
+
+        <!-- Label -->
+        <text x="200" y="32" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" fill="#6b7280" letter-spacing="2.5" font-weight="500">DEPA ARCHITECTURE</text>
+
+        <!-- Layer 5: Data Principals (top) -->
+        <rect x="24" y="48" width="352" height="52" rx="8" fill="#f7f4ee" stroke="#e0dbd0" stroke-width="1"/>
+        <text x="200" y="69" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" fill="#6b7280" font-weight="500">Data Principals</text>
+        <text x="200" y="86" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" fill="#9ca3af">Citizens · Patients · Users — consent owners</text>
+
+        <!-- Arrow down -->
+        <line x1="200" y1="100" x2="200" y2="118" stroke="#d1d5db" stroke-width="1.5" stroke-dasharray="3 2"/>
+        <polygon points="196,116 204,116 200,122" fill="#d1d5db"/>
+
+        <!-- Layer 4: Data Providers / Consumers -->
+        <rect x="24" y="122" width="164" height="60" rx="8" fill="#fef9ee" stroke="#e8c97a" stroke-width="1"/>
+        <text x="106" y="146" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" fill="#92650a" font-weight="500">Data Providers</text>
+        <text x="106" y="162" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" fill="#b88a2a">Hospitals · Banks · Institutions</text>
+
+        <rect x="212" y="122" width="164" height="60" rx="8" fill="#fef9ee" stroke="#e8c97a" stroke-width="1"/>
+        <text x="294" y="146" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" fill="#92650a" font-weight="500">AI Companies</text>
+        <text x="294" y="162" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" fill="#b88a2a">Model builders · Researchers</text>
+
+        <!-- Arrow down -->
+        <line x1="200" y1="182" x2="200" y2="200" stroke="#d1d5db" stroke-width="1.5" stroke-dasharray="3 2"/>
+        <polygon points="196,198 204,198 200,204" fill="#d1d5db"/>
+
+        <!-- Layer 3: Data Collab -->
+        <rect x="24" y="204" width="352" height="60" rx="8" fill="#e8f4f4" stroke="#1a6b6b" stroke-width="1.5"/>
+        <text x="200" y="228" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="12" fill="#1a6b6b" font-weight="600">Data Collaborative</text>
+        <text x="200" y="246" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" fill="#2a9090">Domain-focused neutral platform · powered by DEPA</text>
+
+        <!-- Arrow down -->
+        <line x1="200" y1="264" x2="200" y2="282" stroke="#d1d5db" stroke-width="1.5" stroke-dasharray="3 2"/>
+        <polygon points="196,280 204,280 200,286" fill="#d1d5db"/>
+
+        <!-- Layer 2: Tech Stack -->
+        <rect x="24" y="286" width="108" height="56" rx="8" fill="#f0f4ff" stroke="#c7d2fe" stroke-width="1"/>
+        <text x="78" y="308" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" fill="#4338ca" font-weight="500">Confidential</text>
+        <text x="78" y="322" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" fill="#4338ca" font-weight="500">Clean Rooms</text>
+        <text x="78" y="336" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="#818cf8">CCR / TEE</text>
+
+        <rect x="146" y="286" width="108" height="56" rx="8" fill="#f0f4ff" stroke="#c7d2fe" stroke-width="1"/>
+        <text x="200" y="308" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" fill="#4338ca" font-weight="500">Smart</text>
+        <text x="200" y="322" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" fill="#4338ca" font-weight="500">Contracts</text>
+        <text x="200" y="336" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="#818cf8">e-Contracts</text>
+
+        <rect x="268" y="286" width="108" height="56" rx="8" fill="#f0f4ff" stroke="#c7d2fe" stroke-width="1"/>
+        <text x="322" y="308" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" fill="#4338ca" font-weight="500">Differential</text>
+        <text x="322" y="322" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" fill="#4338ca" font-weight="500">Privacy</text>
+        <text x="322" y="336" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="#818cf8">Math guarantees</text>
+
+        <!-- Arrow down -->
+        <line x1="200" y1="342" x2="200" y2="360" stroke="#d1d5db" stroke-width="1.5" stroke-dasharray="3 2"/>
+        <polygon points="196,358 204,358 200,364" fill="#d1d5db"/>
+
+        <!-- Layer 1: Samyog (bottom) -->
+        <rect x="24" y="364" width="352" height="60" rx="8" fill="#0f1923" stroke="#0f1923"/>
+        <text x="200" y="388" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="12" fill="#f0a820" font-weight="600">Samyog — SRO</text>
+        <text x="200" y="406" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" fill="rgba(255,255,255,0.55)">Governance · Certification · Contracts · Grievance Redressal</text>
+
+        <!-- Side label -->
+        <text x="390" y="250" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="#d1d5db" transform="rotate(90, 390, 250)" letter-spacing="1.5">DEPA FRAMEWORK</text>
+
+        <!-- Brace / bracket on right -->
+        <rect x="388" y="122" width="3" height="300" rx="1.5" fill="#e0dbd0"/>
+
+        <!-- Bottom note -->
+        <text x="200" y="455" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="#9ca3af" letter-spacing="1">DEPA FOUNDATION — Technical Standards Organisation</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- STAT STRIP -->
+<div class="stat-strip">
+  <div class="stat-strip-inner">
+    <div class="stat-item">
+      <div class="stat-number">2</div>
+      <div class="stat-label">DEPA Frameworks</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <div class="stat-number">5</div>
+      <div class="stat-label">Governance Services</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <div class="stat-number">4+</div>
+      <div class="stat-label">Sectors Targeted</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <div class="stat-number">2</div>
+      <div class="stat-label">Govt. Frameworks Recognising DEPA</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <div class="stat-number">$15T</div>
+      <div class="stat-label">Global AI Economy</div>
+    </div>
+  </div>
+</div>
+
+<!-- GOVT RECOGNITION -->
+<div class="credibility">
+  <div class="credibility-inner">
+    <div class="credibility-label">Recognised by</div>
+    <div class="credibility-items">
+      <div class="credibility-item">
+        <strong>India AI Governance Guidelines</strong>
+        Ministry of Electronics and IT, Government of India — November 2025
+      </div>
+      <div class="credibility-item">
+        <strong>Techno-Legal Framework Report</strong>
+        Office of the Principal Scientific Adviser to the Govt. of India — January 2025
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DEPA FRAMEWORKS -->
+<section id="frameworks" class="frameworks">
+  <div class="section-inner">
+    <div class="section-eyebrow">What We Enable</div>
+    <h2 class="section-title">Two complementary<br>frameworks. One trusted architecture.</h2>
+    <p class="section-lead">Both DEPA Training and DEPA Private Inferencing share a common foundation: data never leaves institutional boundaries without consent, purpose limitation, and cryptographic guarantees.</p>
+
+    <div class="frameworks-grid">
+      <div class="framework-card">
+        <span class="framework-tag tag-training">DEPA Training</span>
+        <h3>The era of scraping public data to train AI is ending.</h3>
+        <p>The next frontier demands access to high-quality datasets locked within institutional silos. DEPA Training unlocks AI model training on protected datasets — with privacy, sovereignty, and scalability built in from the start.</p>
+        <ul class="framework-bullets">
+          <li>Confidential Clean Rooms — hardware-level isolation where models come to data, not data to models</li>
+          <li>Differential privacy with mathematical guarantees, not just anonymization</li>
+          <li>Electronic contracts with immutable audit trails on distributed ledgers</li>
+          <li>Compliant with DPDP Act, GDPR, and emerging AI regulations</li>
+        </ul>
+        <a href="https://depa.world/training/depa_training_framework" target="_blank" class="framework-link">Explore DEPA Training →</a>
+      </div>
+
+      <div class="framework-card">
+        <span class="framework-tag tag-inferencing">DEPA Private Inferencing</span>
+        <h3>AI inference across institutional boundaries — without sharing raw data.</h3>
+        <p>Privacy safeguards around sensitive institutional data remain onerous and fragile. DEPA Private Inferencing enables real-time AI inference on protected datasets without data ever leaving institutional boundaries.</p>
+        <ul class="framework-bullets">
+          <li>Secure multi-party inference across organisations in real time</li>
+          <li>Consent-aware, purpose-limited data access at every step</li>
+          <li>Standardised contracts govern every cross-boundary inference event</li>
+          <li>Full provenance chain — from data principal to AI output</li>
+        </ul>
+        <a href="https://pn.ispirt.in/depa-private-inferencing/" target="_blank" class="framework-link">Explore DEPA Inferencing →</a>
+      </div>
+    </div>
+
+    <div class="connector-strip">
+      <strong>DEPA provides the rails. Data Collaboratives create the markets.</strong> Samyog is the SRO that governs both — ensuring every participant operates within a certified, accountable, and legally sound framework.
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT -->
+<section class="impact">
+  <div class="section-inner">
+    <div class="section-eyebrow">Impact Potential</div>
+    <h2 class="section-title">Transforming value creation<br>across vital sectors</h2>
+    <p class="section-lead">DEPA Training and Private Inferencing can unlock data that currently sits idle — powering the next wave of AI innovation across India's most important industries.</p>
+
+    <div class="impact-sectors">
+      <div class="sector-card">
+        <div class="sector-icon">🏥</div>
+        <h4>Healthcare</h4>
+        <p>AI-driven diagnostics, drug discovery, and public health — powered by securely pooled clinical data across hospital networks.</p>
+      </div>
+      <div class="sector-card">
+        <div class="sector-icon">🏦</div>
+        <h4>Finance</h4>
+        <p>Credit access for 400M underserved individuals and MSMEs, enabled by privacy-preserving collaboration across financial institutions.</p>
+      </div>
+      <div class="sector-card">
+        <div class="sector-icon">🎓</div>
+        <h4>Education</h4>
+        <p>Personalised learning at scale for 250M students, with portable skill credentials for a future-ready workforce.</p>
+      </div>
+      <div class="sector-card">
+        <div class="sector-icon">🛒</div>
+        <h4>Retail</h4>
+        <p>Richer consumer intelligence and demand forecasting through trusted collaboration across competing retail datasets.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT SAMYOG -->
+<section id="about" class="about">
+  <div class="section-inner">
+    <div class="section-eyebrow">About Samyog</div>
+    <h2 class="section-title">The governance layer<br>India's AI data ecosystem needs</h2>
+
+    <div class="about-grid">
+      <div>
+        <p class="about-desc">Samyog is a stakeholder-led, self-regulatory organisation guiding the creation and management of Data Collaboratives — bringing together data providers, consumers, and service ecosystems to enable trusted, repeatable, multi-party data collaboration within focused domains.</p>
+        <p class="about-desc">It operationalises DEPA Training and Private Inferencing at scale by shaping market awareness and delivering critical governance services: certification, standardised contracts, key management infrastructure, grievance redressal, and training.</p>
+        <p class="about-desc" style="font-size:14px; color: rgba(255,255,255,0.45);">Powered by iSPIRT. Technical standards by DEPA Foundation.</p>
+      </div>
+
+      <div>
+        <p style="font-size:12px; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.4); margin-bottom:16px; font-weight:500;">The Ecosystem Roles</p>
+        <div class="ecosystem-roles">
+          <div class="role-chip samyog-center" style="grid-column: 1/-1;">
+            <div class="role-abbr">Samyog (SRO)</div>
+            <div class="role-name">Governance · Certification · Contracts · Grievance Redressal</div>
+          </div>
+          <div class="role-chip">
+            <div class="role-abbr">TDP</div>
+            <div class="role-name">Training Data Providers — institutions with valuable datasets</div>
+          </div>
+          <div class="role-chip">
+            <div class="role-abbr">TDC</div>
+            <div class="role-name">Training Data Consumers — AI companies and model builders</div>
+          </div>
+          <div class="role-chip">
+            <div class="role-abbr">TSP</div>
+            <div class="role-name">Tech Service Providers — CCR, compute, infrastructure</div>
+          </div>
+          <div class="role-chip">
+            <div class="role-abbr">DEPA Foundation</div>
+            <div class="role-name">Technical Standards Organisation — open reference architecture</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="services">
+  <div class="section-inner">
+    <div class="section-eyebrow">Services by Samyog</div>
+    <h2 class="section-title">What Samyog delivers<br>to the ecosystem</h2>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🏗️</div>
+        <h4>Common Infrastructure</h4>
+        <p>Shared platforms, onboarding systems, and key management infrastructure that power the DEPA ecosystem — removing the need for each participant to build from scratch.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">✅</div>
+        <h4>Certifications & Compliance</h4>
+        <p>Entity registration, verification, and certification for data providers, consumers, and tech service providers — ensuring every participant meets the required standards.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📄</div>
+        <h4>Standardised Smart Contracts</h4>
+        <p>Machine-executable legal agreements and key management systems that make multi-party data collaborations legally sound, transparent, and auditable.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">⚖️</div>
+        <h4>Grievance Redressal</h4>
+        <p>A formal dispute resolution mechanism that maintains trust across the ecosystem — providing clear recourse for all participants when things go wrong.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🎓</div>
+        <h4>Training & Support</h4>
+        <p>Technical and operational support for ecosystem participants — from onboarding to ongoing enablement — ensuring DEPA is adopted correctly and at scale.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📊</div>
+        <h4>Data Catalogue & Discovery</h4>
+        <p>A searchable registry of available datasets and their governance terms — enabling data consumers to discover and contract for the data they need responsibly.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESOURCES -->
+<section id="resources" class="resources">
+  <div class="section-inner">
+    <div class="section-eyebrow">Resources</div>
+    <h2 class="section-title">Learn, watch, explore</h2>
+
+    <div class="resources-tabs">
+      <button class="tab-btn active" onclick="switchTab('featured')">Featured Videos</button>
+      <button class="tab-btn" onclick="switchTab('openhouses')">Open Houses</button>
+      <button class="tab-btn" onclick="switchTab('blogs')">Blogs</button>
+    </div>
+
+    <!-- Featured Videos -->
+    <div id="tab-featured" class="tab-content active">
+      <div class="videos-grid">
+        <div>
+          <div class="video-embed">
+            <iframe src="https://www.youtube.com/embed/dpCSGz959v8" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="video-title">DEPA for AI — AI Impact Summit</div>
+        </div>
+        <div>
+          <div class="video-embed">
+            <iframe src="https://www.youtube.com/embed/GPx-5dlpqeM?start=332" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="video-title">DEPA Training — Overview</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Open Houses -->
+    <div id="tab-openhouses" class="tab-content">
+      <div class="videos-grid">
+        <div>
+          <div class="video-embed">
+            <iframe src="https://www.youtube.com/embed/KF2udHOtzuo" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="video-title">Open House — Latest</div>
+        </div>
+        <div>
+          <div class="video-embed">
+            <iframe src="https://www.youtube.com/embed/iEVNNeAACwE" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="video-title">Open House — DEPA Ecosystem Deep Dive</div>
+        </div>
+        <div>
+          <div class="video-embed">
+            <iframe src="https://www.youtube.com/embed/6tPTtv19KSc" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="video-title">Open House — Part 6</div>
+        </div>
+        <div>
+          <div class="video-embed">
+            <iframe src="https://www.youtube.com/embed/P8txudZnGFo" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="video-title">Open House — Part 5</div>
+        </div>
+        <div>
+          <div class="video-embed">
+            <iframe src="https://www.youtube.com/embed/nPefC2a4_7k" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="video-title">Open House — Part 4</div>
+        </div>
+        <div>
+          <div class="video-embed">
+            <iframe src="https://www.youtube.com/embed/VF4LpxY9Rtk" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="video-title">Open House — Part 3</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Blogs -->
+    <div id="tab-blogs" class="tab-content">
+      <div class="blogs-list">
+        <a href="https://pn.ispirt.in/depa-private-inferencing/" target="_blank" class="blog-card">
+          <div class="blog-tag">DEPA Inferencing</div>
+          <h4>DEPA Private Inferencing — Technical Overview</h4>
+          <div class="blog-arrow">Read on ProductNation →</div>
+        </a>
+        <a href="https://pn.ispirt.in/depa-training-tech-updates/" target="_blank" class="blog-card">
+          <div class="blog-tag">DEPA Training</div>
+          <h4>DEPA Training: Tech Updates — Feb 2026</h4>
+          <div class="blog-arrow">Read on ProductNation →</div>
+        </a>
+        <a href="https://pn.ispirt.in/depa-ai-chain-empowerment-through-provenance/" target="_blank" class="blog-card">
+          <div class="blog-tag">AI Chain</div>
+          <h4>AI Chain: Empowerment Through Provenance</h4>
+          <div class="blog-arrow">Read on ProductNation →</div>
+        </a>
+        <a href="https://pn.ispirt.in/privacy-in-the-age-of-ai-new-frameworks-for-data-collaboation-part-2/" target="_blank" class="blog-card">
+          <div class="blog-tag">Privacy Frameworks</div>
+          <h4>Privacy in the Age of AI: New Frameworks for Data Collaboration — Part 2</h4>
+          <div class="blog-arrow">Read on ProductNation →</div>
+        </a>
+        <a href="https://pn.ispirt.in/privacy-in-the-age-of-ai-new-frameworks-for-data-collaboation-part-1/" target="_blank" class="blog-card">
+          <div class="blog-tag">Privacy Frameworks</div>
+          <h4>Privacy in the Age of AI: New Frameworks for Data Collaboration — Part 1</h4>
+          <div class="blog-arrow">Read on ProductNation →</div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team" class="team">
+  <div class="section-inner">
+    <div class="section-eyebrow">The Minds Powering Samyog</div>
+    <h2 class="section-title" style="margin-bottom:56px;">Board, Leadership & Advisors</h2>
+
+    <div class="team-section-title">Board of Directors</div>
+    <div class="team-grid">
+      <div class="team-card">
+        <a href="https://www.linkedin.com/in/sharadsharma/" target="_blank">
+          <img src="http://samyog.world/assets/img/Sharad.jpg" alt="Sharad Sharma" class="team-avatar">
+          <div class="team-name">Sharad Sharma</div>
+        </a>
+      </div>
+      <div class="team-card">
+        <a href="https://www.linkedin.com/in/sudev-rao/" target="_blank">
+          <img src="http://samyog.world/assets/img/sudev.jpg" alt="Sudev Rao" class="team-avatar">
+          <div class="team-name">Sudev Rao</div>
+        </a>
+      </div>
+      <div class="team-card">
+        <a href="https://www.linkedin.com/in/vikramgarg/" target="_blank">
+          <img src="http://samyog.world/assets/img/vikram.png" alt="Vikram Garg" class="team-avatar">
+          <div class="team-name">Vikram Garg</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="team-section-title">Leadership Team</div>
+    <div class="team-grid">
+      <div class="team-card">
+        <a href="https://www.linkedin.com/in/vikramgarg/" target="_blank">
+          <img src="http://samyog.world/assets/img/vikram.png" alt="Vikram Garg" class="team-avatar">
+          <div class="team-name">Vikram Garg</div>
+          <div class="team-role">Director</div>
+        </a>
+      </div>
+      <div class="team-card">
+        <a href="https://www.linkedin.com/in/bioenable/" target="_blank">
+          <img src="http://samyog.world/assets/img/shyam.jpeg" alt="Dr. Shyam Sundaram" class="team-avatar">
+          <div class="team-name">Dr. Shyam Sundaram</div>
+          <div class="team-role">Chief Technology Officer</div>
+        </a>
+      </div>
+      <div class="team-card">
+        <a href="https://www.linkedin.com/in/sunu-engineer-71a0a3114/" target="_blank">
+          <img src="http://samyog.world/assets/img/sunu.jpg" alt="Sunu Engineer" class="team-avatar">
+          <div class="team-name">Sunu Engineer</div>
+          <div class="team-role">Chief Scientist</div>
+        </a>
+      </div>
+      <div class="team-card">
+        <a href="https://www.linkedin.com/in/raj-shekhar-75403812b/" target="_blank">
+          <img src="http://samyog.world/assets/img/Raj.jpg" alt="Raj Shekhar" class="team-avatar">
+          <div class="team-name">Raj Shekhar</div>
+          <div class="team-role">Lead — Public Policy & Advocacy</div>
+        </a>
+      </div>
+      <div class="team-card">
+        <a href="https://www.linkedin.com/in/harisubramanian/" target="_blank">
+          <img src="http://samyog.world/assets/img/hari.jpeg" alt="Hari Subramanian" class="team-avatar">
+          <div class="team-name">Hari Subramanian</div>
+          <div class="team-role">Chief Ecosystem Officer</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="team-section-title">Advisors</div>
+    <div class="team-grid">
+      <div class="team-card">
+        <a href="https://www.linkedin.com/in/akhandelwal7/" target="_blank">
+          <img src="http://samyog.world/assets/img/Anshul.jpg" alt="Anshul Khandelwal" class="team-avatar">
+          <div class="team-name">Anshul Khandelwal</div>
+        </a>
+      </div>
+      <div class="team-card">
+        <a href="https://www.linkedin.com/in/kapil-vaswani-7a56b64/" target="_blank">
+          <img src="http://samyog.world/assets/img/kapil.png" alt="Kapil Vaswani" class="team-avatar">
+          <div class="team-name">Kapil Vaswani</div>
+        </a>
+      </div>
+      <div class="team-card">
+        <a href="https://www.linkedin.com/in/pavan-kumar-adukuri-7450601/" target="_blank">
+          <img src="http://samyog.world/assets/img/pavan.jpeg" alt="Pavan Adukuri" class="team-avatar">
+          <div class="team-name">Pavan Adukuri</div>
+        </a>
+      </div>
+      <div class="team-card">
+        <a href="https://www.linkedin.com/in/ra-incourager/" target="_blank">
+          <img src="http://samyog.world/assets/img/Rishabh.jpeg" alt="Rishabh Agarwal" class="team-avatar">
+          <div class="team-name">Rishabh Agarwal</div>
+        </a>
+      </div>
+      <div class="team-card">
+        <a href="https://www.linkedin.com/in/saranggalada/" target="_blank">
+          <img src="http://samyog.world/assets/img/Sarang.png" alt="Sarang Galada" class="team-avatar">
+          <div class="team-name">Sarang Galada</div>
+        </a>
+      </div>
+      <div class="team-card">
+        <a href="https://www.linkedin.com/in/saumyajetley/" target="_blank">
+          <img src="http://samyog.world/assets/img/Saumya.png" alt="Saumya Jetley" class="team-avatar">
+          <div class="team-name">Saumya Jetley</div>
+        </a>
+      </div>
+      <div class="team-card">
+        <a href="https://www.linkedin.com/in/shikhar-verma/" target="_blank">
+          <img src="http://samyog.world/assets/img/SV.png" alt="Shikhar Verma" class="team-avatar">
+          <div class="team-name">Shikhar Verma</div>
+        </a>
+      </div>
+      <div class="team-card">
+        <a href="https://www.linkedin.com/in/subodh-sharma-b05924b/" target="_blank">
+          <img src="http://samyog.world/assets/img/Subodh.jpeg" alt="Prof. Subodh Sharma" class="team-avatar">
+          <div class="team-name">Prof. Subodh Sharma</div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ENGAGEMENT -->
+<section id="contact" class="engagement">
+  <div class="section-inner">
+    <div class="section-eyebrow">Get Involved</div>
+    <h2 class="section-title">Explore and get in touch to power<br>the next frontier in AI data.</h2>
+
+    <div class="engagement-cards">
+      <a href="https://depa.world/training/depa_training_framework" target="_blank" class="engagement-card">
+        <div class="engagement-card-icon">🌐</div>
+        <h4>DEPA Training</h4>
+        <p>Explore the official framework documentation and architecture</p>
+        <span class="card-link">depa.world</span>
+      </a>
+      <a href="https://github.com/iSPIRT/depa-training" target="_blank" class="engagement-card">
+        <div class="engagement-card-icon">💻</div>
+        <h4>Open Source</h4>
+        <p>Dive into the code, run scenarios, and contribute to the framework</p>
+        <span class="card-link">github.com/iSPIRT</span>
+      </a>
+      <a href="https://volunteers.ispirt.in" target="_blank" class="engagement-card">
+        <div class="engagement-card-icon">🤝</div>
+        <h4>Volunteer</h4>
+        <p>Join as a no-greed no-glory contributor to DEPA and Samyog</p>
+        <span class="card-link">ispirt.in/volunteer</span>
+      </a>
+      <a href="mailto:info@samyog.world" class="engagement-card">
+        <div class="engagement-card-icon">✉️</div>
+        <h4>Partner With Us</h4>
+        <p>Infrastructure partnerships, data collaboratives, and ecosystem participation</p>
+        <span class="card-link">info@samyog.world</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- LINEAGE SECTION -->
+<section class="lineage">
+  <div class="section-inner">
+    <div class="section-eyebrow">Our Roots</div>
+    <h2 class="section-title">Built on a proven<br>DPI playbook</h2>
+    <p class="section-lead">Samyog follows in the tradition of India's most successful digital public infrastructure — institutions that transformed markets by making trust programmable at scale.</p>
+
+    <div class="lineage-track">
+      <div class="lineage-card lineage-past">
+        <div class="lineage-year">2016</div>
+        <div class="lineage-name">Aadhaar + India Stack</div>
+        <div class="lineage-desc">Identity infrastructure for 1.4B citizens. Proved that open DPI could transform national systems.</div>
+      </div>
+      <div class="lineage-arrow">→</div>
+      <div class="lineage-card lineage-past">
+        <div class="lineage-year">2018</div>
+        <div class="lineage-name">UPI</div>
+        <div class="lineage-desc">Unified Payments Infrastructure. Interoperable, real-time payments at population scale.</div>
+      </div>
+      <div class="lineage-arrow">→</div>
+      <div class="lineage-card lineage-past">
+        <div class="lineage-year">2021</div>
+        <div class="lineage-name">Account Aggregator</div>
+        <div class="lineage-desc">DEPA's first instantiation — secure, consent-based financial data sharing. Sahamati as the SRO.</div>
+      </div>
+      <div class="lineage-arrow">→</div>
+      <div class="lineage-card lineage-now">
+        <div class="lineage-year">2025–</div>
+        <div class="lineage-name">Samyog + DEPA</div>
+        <div class="lineage-desc">DEPA's next chapter — trusted AI training and inference on private institutional data. Samyog as the SRO.</div>
+      </div>
+    </div>
+
+    <div class="lineage-family">
+      <div class="lineage-family-label">Part of the iSPIRT ecosystem</div>
+      <div class="lineage-family-chips">
+        <a href="https://ispirt.in" target="_blank" class="family-chip">iSPIRT</a>
+        <a href="https://sahamati.org.in" target="_blank" class="family-chip">Sahamati</a>
+        <a href="https://depa.world" target="_blank" class="family-chip">DEPA Foundation</a>
+        <a href="https://peopleplus.ai" target="_blank" class="family-chip">People+ai</a>
+        <a href="https://ekstep.org" target="_blank" class="family-chip">EkStep</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">Samyog</div>
+        <p class="footer-tagline">India's Self-Regulatory Organisation for responsible AI data collaboration — operationalising DEPA for Training and Private Inferencing at scale.</p>
+        <a href="mailto:info@samyog.world" class="footer-email">info@samyog.world</a>
+      </div>
+      <div class="footer-col">
+        <h5>Explore</h5>
+        <ul>
+          <li><a href="#frameworks">DEPA Training</a></li>
+          <li><a href="#frameworks">DEPA Private Inferencing</a></li>
+          <li><a href="#about">About Samyog</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#resources">Resources</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Links</h5>
+        <ul>
+          <li><a href="https://depa.world" target="_blank">depa.world</a></li>
+          <li><a href="https://github.com/iSPIRT/depa-training" target="_blank">GitHub</a></li>
+          <li><a href="https://pn.ispirt.in" target="_blank">ProductNation Blog</a></li>
+          <li><a href="https://volunteers.ispirt.in" target="_blank">Volunteer</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 Samyog. All Rights Reserved. Powered by iSPIRT.</div>
+      <div class="social-links">
+        <a href="https://x.com/Samyog_world/" target="_blank">X / Twitter</a>
+        <a href="http://linkedin.com/company/samyog" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function switchTab(tab) {
+    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    document.getElementById('tab-' + tab).classList.add('active');
+    event.target.classList.add('active');
+  }
+</script>
+
+</body>
+</html>
