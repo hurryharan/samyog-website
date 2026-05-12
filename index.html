@@ -987,7 +987,540 @@
     border-color: var(--teal);
   }
 
-  /* ANIMATIONS */
+  /* FELLOWSHIP */
+  .fellowship { background: var(--ink); color: var(--white); }
+  .fellowship .section-eyebrow { color: var(--gold-light); }
+  .fellowship .section-title { color: var(--white); }
+
+  .fellowship-intro {
+    font-size: 17px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.75;
+    max-width: 680px;
+    margin-bottom: 64px;
+  }
+
+  .fellowship-intro em {
+    font-style: italic;
+    color: rgba(255,255,255,0.9);
+  }
+
+  .fellowship-tracks {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 72px;
+  }
+
+  .track-card {
+    border-radius: 14px;
+    padding: 40px 36px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .track-card-technical {
+    background: rgba(26,107,107,0.15);
+    border: 1px solid rgba(26,107,107,0.4);
+  }
+
+  .track-card-market {
+    background: rgba(200,134,10,0.1);
+    border: 1px solid rgba(200,134,10,0.3);
+  }
+
+  .track-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 100px;
+    margin-bottom: 20px;
+  }
+
+  .badge-technical { background: rgba(26,107,107,0.3); color: var(--teal-light); }
+  .badge-market { background: rgba(200,134,10,0.2); color: var(--gold-light); }
+
+  .track-card h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--white);
+    margin-bottom: 12px;
+    line-height: 1.25;
+  }
+
+  .track-card .track-focus {
+    font-size: 14px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .track-example {
+    background: rgba(255,255,255,0.05);
+    border-radius: 8px;
+    padding: 14px 18px;
+  }
+
+  .track-example-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    margin-bottom: 6px;
+  }
+
+  .track-example p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.55;
+  }
+
+  .track-spots {
+    margin-top: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    color: rgba(255,255,255,0.4);
+  }
+
+  .track-spots strong { color: rgba(255,255,255,0.8); }
+
+  /* Fellowship phases */
+  .fellowship-phases-title {
+    font-family: 'Fraunces', serif;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 28px;
+  }
+
+  .phases-track {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-bottom: 64px;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .phase-card {
+    padding: 32px 28px;
+    background: rgba(255,255,255,0.04);
+    position: relative;
+  }
+
+  .phase-card:not(:last-child) {
+    border-right: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .phase-week {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 4px;
+  }
+
+  .phase-label {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+    margin-bottom: 16px;
+  }
+
+  .phase-card h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 19px;
+    font-weight: 400;
+    color: var(--white);
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+
+  .phase-card p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.65;
+  }
+
+  /* Fellowship qualities */
+  .fellowship-qualities {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+    padding-top: 64px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .qualities-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .qualities-list li {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+
+  .quality-marker {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--gold-light);
+    flex-shrink: 0;
+    margin-top: 7px;
+  }
+
+  .quality-content strong {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 3px;
+  }
+
+  .quality-content span {
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.55;
+  }
+
+  .fellowship-cta-box {
+    background: rgba(200,134,10,0.1);
+    border: 1px solid rgba(200,134,10,0.25);
+    border-radius: 14px;
+    padding: 36px 32px;
+  }
+
+  .fellowship-cta-box p {
+    font-size: 15px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+
+  .fellowship-cta-box .cta-note {
+    font-size: 12px;
+    color: rgba(255,255,255,0.35);
+    margin-top: 14px;
+    line-height: 1.5;
+  }
+
+  .btn-gold {
+    background: var(--gold);
+    color: var(--white);
+    padding: 14px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+
+  .btn-gold:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  @media (max-width: 900px) {
+    .fellowship-tracks { grid-template-columns: 1fr; }
+    .phases-track { grid-template-columns: 1fr; }
+    .phase-card:not(:last-child) { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .fellowship-qualities { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  /* APPLY MODAL */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background: rgba(15,25,35,0.88);
+    backdrop-filter: blur(8px);
+    overflow-y: auto;
+    padding: 40px 24px;
+  }
+
+  .modal-overlay.open { display: flex; align-items: flex-start; justify-content: center; }
+
+  .modal {
+    background: #111d27;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
+    width: 100%;
+    max-width: 680px;
+    padding: 48px;
+    position: relative;
+    margin: auto;
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 20px; right: 20px;
+    background: rgba(255,255,255,0.07);
+    border: none;
+    color: rgba(255,255,255,0.5);
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .modal-close:hover { background: rgba(255,255,255,0.12); color: var(--white); }
+
+  .modal-eyebrow {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 10px;
+  }
+
+  .modal h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 28px;
+    font-weight: 300;
+    color: var(--white);
+    margin-bottom: 6px;
+    letter-spacing: -0.5px;
+  }
+
+  .modal-subtitle {
+    font-size: 14px;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 36px;
+    line-height: 1.5;
+  }
+
+  .form-section-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    margin-bottom: 16px;
+    margin-top: 32px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+
+  .form-group label {
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.65);
+  }
+
+  .form-group label .required {
+    color: var(--gold-light);
+    margin-left: 3px;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 8px;
+    padding: 11px 14px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    color: var(--white);
+    outline: none;
+    transition: border-color 0.2s, background 0.2s;
+    width: 100%;
+  }
+
+  .form-group input::placeholder,
+  .form-group textarea::placeholder { color: rgba(255,255,255,0.2); }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: rgba(42,144,144,0.6);
+    background: rgba(255,255,255,0.07);
+  }
+
+  .form-group select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(255,255,255,0.3)' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 36px;
+  }
+
+  .form-group select option { background: #1a2a38; color: var(--white); }
+
+  .form-group textarea { resize: vertical; min-height: 96px; line-height: 1.55; }
+
+  .char-hint {
+    font-size: 11px;
+    color: rgba(255,255,255,0.25);
+    text-align: right;
+    margin-top: -10px;
+  }
+
+  .file-upload-area {
+    background: rgba(255,255,255,0.03);
+    border: 1px dashed rgba(255,255,255,0.15);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+    position: relative;
+  }
+
+  .file-upload-area:hover, .file-upload-area.dragover {
+    border-color: rgba(42,144,144,0.5);
+    background: rgba(42,144,144,0.05);
+  }
+
+  .file-upload-area input[type="file"] {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: none;
+    padding: 0;
+  }
+
+  .file-upload-icon { font-size: 22px; margin-bottom: 6px; }
+
+  .file-upload-text {
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.4;
+  }
+
+  .file-upload-text strong { color: var(--teal-light); }
+
+  .file-name-display {
+    font-size: 12px;
+    color: var(--teal-light);
+    margin-top: 8px;
+    display: none;
+  }
+
+  .form-submit-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    flex-wrap: wrap;
+  }
+
+  .btn-submit {
+    background: var(--gold);
+    color: var(--white);
+    padding: 13px 28px;
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    display: flex; align-items: center; gap: 8px;
+  }
+
+  .btn-submit:hover:not(:disabled) { background: #d4920f; transform: translateY(-1px); }
+  .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+  .submit-note {
+    font-size: 12px;
+    color: rgba(255,255,255,0.3);
+    line-height: 1.5;
+  }
+
+  /* Form states */
+  .form-error-msg {
+    font-size: 12px;
+    color: #f87171;
+    margin-top: 4px;
+    display: none;
+  }
+
+  .form-group.has-error input,
+  .form-group.has-error select,
+  .form-group.has-error textarea {
+    border-color: rgba(248,113,113,0.5);
+  }
+
+  .form-group.has-error .form-error-msg { display: block; }
+
+  .submission-state {
+    display: none;
+    text-align: center;
+    padding: 48px 24px;
+  }
+
+  .submission-state.active { display: block; }
+
+  .submission-icon { font-size: 48px; margin-bottom: 20px; }
+
+  .submission-state h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 26px;
+    font-weight: 300;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+
+  .submission-state p { font-size: 15px; color: rgba(255,255,255,0.55); line-height: 1.6; }
+
+  .spinner {
+    width: 22px; height: 22px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-top-color: var(--white);
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+    display: none;
+  }
+
+  .btn-submit.loading .spinner { display: block; }
+  .btn-submit.loading .btn-text { display: none; }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  @media (max-width: 600px) {
+    .modal { padding: 32px 24px; }
+    .form-row { grid-template-columns: 1fr; }
+    .modal h2 { font-size: 22px; }
+  }
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(24px); }
     to { opacity: 1; transform: translateY(0); }
@@ -1033,6 +1566,7 @@
   <a href="#" class="nav-logo">Samyog<span>.</span></a>
   <ul class="nav-links">
     <li><a href="#about">About Samyog</a></li>
+    <li><a href="#fellowship">Fellowship</a></li>
     <li><a href="#resources">Resources</a></li>
     <li><a href="#team">Team</a></li>
     <li><a href="#contact" class="nav-cta">Get in touch</a></li>
@@ -1097,7 +1631,7 @@
         <text x="78" y="336" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="#818cf8">CCR / TEE</text>
 
         <rect x="146" y="286" width="108" height="56" rx="8" fill="#f0f4ff" stroke="#c7d2fe" stroke-width="1"/>
-        <text x="200" y="308" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" fill="#4338ca" font-weight="500">Smart</text>
+        <text x="200" y="308" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" fill="#4338ca" font-weight="500">Electronic</text>
         <text x="200" y="322" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" fill="#4338ca" font-weight="500">Contracts</text>
         <text x="200" y="336" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="#818cf8">e-Contracts</text>
 
@@ -1326,6 +1860,102 @@
         <div class="service-icon">📊</div>
         <h4>Data Catalogue & Discovery</h4>
         <p>A searchable registry of available datasets and their governance terms — enabling data consumers to discover and contract for the data they need responsibly.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FELLOWSHIP -->
+<section id="fellowship" class="fellowship">
+  <div class="section-inner">
+    <div class="section-eyebrow">Samyog Fellowship</div>
+    <h2 class="section-title">Building India Stack's<br>Data Layer from the Inside</h2>
+    <p class="fellowship-intro">India's AI mission will be built by those obsessed with solutions — students who do not wait for a syllabus to innovate, and contributors who are ready to build before they are asked. This is a <em>volunteer fellowship of action</em>: a 24-week programme where you take ownership of a module of public infrastructure that will outlast your fellowship and serve as a permanent contribution to India's digital commons.</p>
+
+    <div class="fellowship-tracks">
+      <div class="track-card track-card-technical">
+        <span class="track-badge badge-technical">Technical Track</span>
+        <h3>Build open-source digital infrastructure for the public</h3>
+        <p class="track-focus">Develop capabilities and components on the DEPA stack — clean rooms, privacy-enhancing technologies (PETs), and electronic contracts.</p>
+        <div class="track-example">
+          <div class="track-example-label">Example Projects</div>
+          <p>Confidential Clean Room components · Differential privacy implementations · Smart contract frameworks for data governance</p>
+        </div>
+        <div class="track-spots"><strong>2 Fellow spots</strong> available</div>
+      </div>
+      <div class="track-card track-card-market">
+        <span class="track-badge badge-market">Market Ecosystem Track</span>
+        <h3>Enable market ecosystem players on the DEPA stack</h3>
+        <p class="track-focus">Build and enhance the market ecosystem by expanding capabilities or creating new opportunities for data consumers and providers.</p>
+        <div class="track-example">
+          <div class="track-example-label">Example Projects</div>
+          <p>Data Collaborative playbooks · Sector-specific DEPA adoption frameworks · Market research and ecosystem mapping</p>
+        </div>
+        <div class="track-spots"><strong>2 Fellow spots</strong> available</div>
+      </div>
+    </div>
+
+    <div class="fellowship-phases-title">A contribution lifecycle, not a course — 24 weeks</div>
+    <div class="phases-track">
+      <div class="phase-card">
+        <div class="phase-week">Wk 1–2</div>
+        <div class="phase-label">Phase One</div>
+        <h4>Contextual Immersion</h4>
+        <p>Learn the problem first — not just the technical or legal dimension, but why this public good matters for India. Every build decision grounded in human stakes.</p>
+      </div>
+      <div class="phase-card">
+        <div class="phase-week">Wk 3–22</div>
+        <div class="phase-label">Phase Two</div>
+        <h4>The Build Phase</h4>
+        <p>Work on a specific, scoped module — a technical component, techno-legal paper, or market enablement framework. All outputs open-source, with support from iSPIRT practitioners.</p>
+      </div>
+      <div class="phase-card">
+        <div class="phase-week">Wk 23+</div>
+        <div class="phase-label">Phase Three</div>
+        <h4>Handover & Documentation</h4>
+        <p>Ensure the work lives on as a permanent public asset — documented clearly enough that the next contributor can build on it without starting over.</p>
+      </div>
+    </div>
+
+    <div class="fellowship-qualities">
+      <div>
+        <p style="font-size:12px; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.35); margin-bottom:24px; font-weight:500;">Who This Is For</p>
+        <ul class="qualities-list">
+          <li>
+            <div class="quality-marker"></div>
+            <div class="quality-content">
+              <strong>Contribution over Curriculum</strong>
+              <span>A steep learning curve is a byproduct of hard work, not a prerequisite to starting.</span>
+            </div>
+          </li>
+          <li>
+            <div class="quality-marker"></div>
+            <div class="quality-content">
+              <strong>Journey Already Underway</strong>
+              <span>Your personal projects and curiosities already live in AI, policy, or market-building. You do not need convincing.</span>
+            </div>
+          </li>
+          <li>
+            <div class="quality-marker"></div>
+            <div class="quality-content">
+              <strong>Transdisciplinary Friction</strong>
+              <span>A coder who respects the law, a policy thinker who understands logic, or a designer who thinks in systems.</span>
+            </div>
+          </li>
+          <li>
+            <div class="quality-marker"></div>
+            <div class="quality-content">
+              <strong>Legacy Mindset</strong>
+              <span>You want to leave a brick in the foundation — not a line on a resume, but a public asset that endures.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="fellowship-cta-box">
+        <p>The Fellow does not leave with a certificate. They leave with a <strong style="color:rgba(255,255,255,0.9);">contribution</strong> — one permanent public asset that outlasts the programme and serves India's digital commons.</p>
+        <p style="font-size:14px; color:rgba(255,255,255,0.5); margin-bottom:28px; line-height:1.65;">One Fellow. One contribution. One permanent public asset at a time.</p>
+        <button onclick="openApplyModal()" class="btn-gold" style="border:none; cursor:pointer; font-family:'DM Sans',sans-serif;">Apply for the Fellowship</button>
+        <p class="cta-note">Volunteer programme · Open-source principles · iSPIRT-supported</p>
       </div>
     </div>
   </div>
@@ -1631,8 +2261,6 @@
         <a href="https://ispirt.in" target="_blank" class="family-chip">iSPIRT</a>
         <a href="https://sahamati.org.in" target="_blank" class="family-chip">Sahamati</a>
         <a href="https://depa.world" target="_blank" class="family-chip">DEPA Foundation</a>
-        <a href="https://peopleplus.ai" target="_blank" class="family-chip">People+ai</a>
-        <a href="https://ekstep.org" target="_blank" class="family-chip">EkStep</a>
       </div>
     </div>
   </div>
@@ -1684,7 +2312,253 @@
     document.getElementById('tab-' + tab).classList.add('active');
     event.target.classList.add('active');
   }
+
+  /* ── FELLOWSHIP APPLICATION MODAL ── */
+
+  // TODO: Replace with your Formspree form ID.
+  // Setup: sign up at formspree.io with hari@ispirt.in, create a new form,
+  // then add vikram@ispirt.in and shyam@ispirt.in as extra notification emails
+  // in the form's Settings → Notifications panel.
+  const FORMSPREE_ID = 'xjgllenp';
+
+  function openApplyModal() {
+    document.getElementById('applyModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeApplyModal() {
+    document.getElementById('applyModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const overlay = document.getElementById('applyModal');
+
+    // Close on backdrop click
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) closeApplyModal();
+    });
+
+    // Close on Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeApplyModal();
+    });
+
+    // File upload display
+    const fileInput = document.getElementById('resumeFile');
+    const fileNameDisplay = document.getElementById('fileNameDisplay');
+    const uploadArea = document.getElementById('uploadArea');
+
+    fileInput.addEventListener('change', () => {
+      if (fileInput.files.length > 0) {
+        fileNameDisplay.textContent = '📎 ' + fileInput.files[0].name;
+        fileNameDisplay.style.display = 'block';
+      } else {
+        fileNameDisplay.style.display = 'none';
+      }
+    });
+
+    // Drag-and-drop styling
+    uploadArea.addEventListener('dragover', (e) => { e.preventDefault(); uploadArea.classList.add('dragover'); });
+    uploadArea.addEventListener('dragleave', () => uploadArea.classList.remove('dragover'));
+    uploadArea.addEventListener('drop', () => uploadArea.classList.remove('dragover'));
+
+    // Form submission
+    document.getElementById('fellowshipForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const form = e.target;
+      if (!validateForm(form)) return;
+
+      const btn = form.querySelector('.btn-submit');
+      btn.disabled = true;
+      btn.classList.add('loading');
+
+      const formData = new FormData(form);
+
+      try {
+        const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (res.ok) {
+          showState('successState');
+        } else {
+          const data = await res.json();
+          const msg = (data.errors && data.errors.map(e => e.message).join(', ')) || 'Submission failed.';
+          showErrorBanner(msg);
+          btn.disabled = false;
+          btn.classList.remove('loading');
+        }
+      } catch {
+        showErrorBanner('Network error — please try again or email info@samyog.world.');
+        btn.disabled = false;
+        btn.classList.remove('loading');
+      }
+    });
+  });
+
+  function validateForm(form) {
+    let valid = true;
+    // Clear previous errors
+    form.querySelectorAll('.form-group').forEach(g => g.classList.remove('has-error'));
+    document.getElementById('formErrorBanner').style.display = 'none';
+
+    const required = ['applicantName', 'applicantEmail', 'linkedin', 'track', 'institution', 'motivation', 'relevantWork'];
+    required.forEach(id => {
+      const el = document.getElementById(id);
+      if (!el.value.trim()) {
+        el.closest('.form-group').classList.add('has-error');
+        valid = false;
+      }
+    });
+
+    // Email format
+    const email = document.getElementById('applicantEmail');
+    if (email.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+      email.closest('.form-group').classList.add('has-error');
+      document.getElementById('emailError').textContent = 'Please enter a valid email address.';
+      valid = false;
+    }
+
+    // LinkedIn format
+    const li = document.getElementById('linkedin');
+    if (li.value && !li.value.includes('linkedin.com')) {
+      li.closest('.form-group').classList.add('has-error');
+      document.getElementById('linkedinError').textContent = 'Please enter a valid LinkedIn profile URL.';
+      valid = false;
+    }
+
+    // Resume size check
+    const file = document.getElementById('resumeFile');
+    if (file.files.length > 0 && file.files[0].size > 5 * 1024 * 1024) {
+      file.closest('.form-group').classList.add('has-error');
+      valid = false;
+    }
+
+    if (!valid) {
+      document.getElementById('formErrorBanner').style.display = 'block';
+      form.querySelector('.form-group.has-error input, .form-group.has-error select, .form-group.has-error textarea').focus();
+    }
+    return valid;
+  }
+
+  function showState(stateId) {
+    document.getElementById('fellowshipForm').style.display = 'none';
+    document.getElementById(stateId).classList.add('active');
+  }
+
+  function showErrorBanner(msg) {
+    const banner = document.getElementById('formErrorBanner');
+    banner.textContent = msg;
+    banner.style.display = 'block';
+    banner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
 </script>
+
+<!-- FELLOWSHIP APPLY MODAL -->
+<div id="applyModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal">
+    <button class="modal-close" onclick="closeApplyModal()" aria-label="Close">✕</button>
+
+    <!-- Success state -->
+    <div id="successState" class="submission-state">
+      <div class="submission-icon">✅</div>
+      <h3>Application submitted!</h3>
+      <p>Thank you for applying to the Samyog Fellowship. The team will review your application and be in touch soon.</p>
+    </div>
+
+    <!-- Form -->
+    <form id="fellowshipForm" novalidate>
+      <!-- Formspree hidden fields -->
+      <input type="hidden" name="_cc" value="vikram@ispirt.in,shyam@ispirt.in">
+      <input type="hidden" name="_subject" value="Samyog Fellowship Application">
+      <input type="hidden" name="_replyto" id="replyToMirror">
+
+      <div id="formErrorBanner" style="display:none; background:rgba(248,113,113,0.1); border:1px solid rgba(248,113,113,0.3); border-radius:8px; padding:12px 16px; font-size:13px; color:#fca5a5; margin-bottom:20px;">
+        Please fill in all required fields before submitting.
+      </div>
+
+      <div class="modal-eyebrow">Samyog Fellowship — 24 weeks</div>
+      <h2 id="modalTitle">Quick Application</h2>
+      <p class="modal-subtitle">Two tracks · 2 spots each · Volunteer, open-source, iSPIRT-supported</p>
+
+      <!-- Personal -->
+      <div class="form-section-label">About You</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="applicantName">Full name <span class="required">*</span></label>
+          <input type="text" id="applicantName" name="name" placeholder="Priya Sharma" autocomplete="name">
+          <span class="form-error-msg">Required</span>
+        </div>
+        <div class="form-group">
+          <label for="applicantEmail">Email <span class="required">*</span></label>
+          <input type="email" id="applicantEmail" name="email" placeholder="you@example.com" autocomplete="email"
+            oninput="document.getElementById('replyToMirror').value=this.value">
+          <span class="form-error-msg" id="emailError">Required</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="linkedin">LinkedIn profile URL <span class="required">*</span></label>
+        <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/yourprofile">
+        <span class="form-error-msg" id="linkedinError">Required — please enter your LinkedIn URL</span>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="institution">Current institution / company <span class="required">*</span></label>
+          <input type="text" id="institution" name="institution" placeholder="IIT Delhi · Zepto · Freelance">
+          <span class="form-error-msg">Required</span>
+        </div>
+        <div class="form-group">
+          <label for="track">Fellowship track <span class="required">*</span></label>
+          <select id="track" name="track">
+            <option value="" disabled selected>Select a track</option>
+            <option value="Technical Track">Technical Track — open-source DEPA infrastructure</option>
+            <option value="Market Ecosystem Track">Market Ecosystem Track — DEPA adoption & enablement</option>
+          </select>
+          <span class="form-error-msg">Required</span>
+        </div>
+      </div>
+
+      <!-- Motivation -->
+      <div class="form-section-label">Your Motivation</div>
+      <div class="form-group">
+        <label for="motivation">Why the Samyog Fellowship? <span class="required">*</span></label>
+        <textarea id="motivation" name="motivation" placeholder="What draws you to building India's AI data layer? What do you hope to contribute and take away?" rows="4"></textarea>
+        <span class="form-error-msg">Required</span>
+      </div>
+
+      <div class="form-group">
+        <label for="relevantWork">Relevant work, projects, or contributions <span class="required">*</span></label>
+        <textarea id="relevantWork" name="relevant_work" placeholder="Share links, descriptions, or context — GitHub repos, policy papers, market research, side projects…" rows="4"></textarea>
+        <span class="form-error-msg">Required</span>
+      </div>
+
+      <!-- Resume -->
+      <div class="form-section-label">Resume <span style="font-weight:400; letter-spacing:0; text-transform:none; font-size:11px; color:rgba(255,255,255,0.2);">— optional</span></div>
+      <div class="form-group">
+        <div class="file-upload-area" id="uploadArea">
+          <input type="file" id="resumeFile" name="resume" accept=".pdf,.doc,.docx">
+          <div class="file-upload-icon">📄</div>
+          <div class="file-upload-text"><strong>Click to upload</strong> or drag and drop<br>PDF, DOC, DOCX · Max 5 MB</div>
+          <div class="file-name-display" id="fileNameDisplay"></div>
+        </div>
+        <span class="form-error-msg">File exceeds 5 MB — please upload a smaller file</span>
+      </div>
+
+      <div class="form-submit-row">
+        <button type="submit" class="btn-submit">
+          <span class="btn-text">Submit Application</span>
+          <div class="spinner"></div>
+        </button>
+        <p class="submit-note">Your application is sent to the Samyog team.<br>No spam, no third-party marketing.</p>
+      </div>
+    </form>
+  </div>
+</div>
 
 </body>
 </html>
