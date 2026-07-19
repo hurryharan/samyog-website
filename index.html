@@ -165,6 +165,14 @@
 
   .btn-secondary:hover { opacity: 0.7; }
 
+  button.btn-secondary {
+    background: none;
+    border: none;
+    border-bottom: 1px solid var(--teal);
+    padding: 0 0 2px;
+    cursor: pointer;
+  }
+
   .hero-visual {
     position: relative;
     display: flex;
@@ -2426,7 +2434,7 @@
       <p class="partners-group-desc">Beyond empanelled partners, Samyog is supported by members — institutions and individuals who back the ecosystem's mission without holding a formal TSP, TDP, or TDC role.</p>
       <div class="members-placeholder">
         <p>Member listings are being onboarded. If your organisation supports Samyog's mission, we'd love to have you on this page.</p>
-        <a href="mailto:info@samyog.world" class="btn-secondary">Become a member →</a>
+        <button type="button" onclick="openMemberModal()" class="btn-secondary">Become a member →</button>
       </div>
     </div>
   </div>
@@ -2576,6 +2584,18 @@
     document.body.style.overflow = '';
   }
 
+  /* ── MEMBER APPLICATION MODAL ── */
+
+  function openMemberModal() {
+    document.getElementById('memberModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMemberModal() {
+    document.getElementById('memberModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     const overlay = document.getElementById('applyModal');
 
@@ -2584,9 +2604,17 @@
       if (e.target === overlay) closeApplyModal();
     });
 
+    const memberOverlay = document.getElementById('memberModal');
+    memberOverlay.addEventListener('click', (e) => {
+      if (e.target === memberOverlay) closeMemberModal();
+    });
+
     // Close on Escape
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeApplyModal();
+      if (e.key === 'Escape') {
+        closeApplyModal();
+        closeMemberModal();
+      }
     });
 
     // File upload display
@@ -2638,6 +2666,41 @@
         }
       } catch {
         showErrorBanner('Network error — please try again or email info@samyog.world.');
+        btn.disabled = false;
+        btn.classList.remove('loading');
+      }
+    });
+
+    // Member form submission
+    document.getElementById('memberForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const form = e.target;
+      if (!validateMemberForm(form)) return;
+
+      const btn = form.querySelector('.btn-submit');
+      btn.disabled = true;
+      btn.classList.add('loading');
+
+      const formData = new FormData(form);
+
+      try {
+        const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (res.ok) {
+          showMemberState('memberSuccessState');
+        } else {
+          const data = await res.json();
+          const msg = (data.errors && data.errors.map(e => e.message).join(', ')) || 'Submission failed.';
+          showMemberErrorBanner(msg);
+          btn.disabled = false;
+          btn.classList.remove('loading');
+        }
+      } catch {
+        showMemberErrorBanner('Network error — please try again or email info@samyog.world.');
         btn.disabled = false;
         btn.classList.remove('loading');
       }
@@ -2696,6 +2759,54 @@
 
   function showErrorBanner(msg) {
     const banner = document.getElementById('formErrorBanner');
+    banner.textContent = msg;
+    banner.style.display = 'block';
+    banner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  function validateMemberForm(form) {
+    let valid = true;
+    form.querySelectorAll('.form-group').forEach(g => g.classList.remove('has-error'));
+    document.getElementById('memberFormErrorBanner').style.display = 'none';
+
+    const required = ['memberName', 'memberEmail', 'memberType', 'memberMessage'];
+    required.forEach(id => {
+      const el = document.getElementById(id);
+      if (!el.value.trim()) {
+        el.closest('.form-group').classList.add('has-error');
+        valid = false;
+      }
+    });
+
+    // Email format
+    const email = document.getElementById('memberEmail');
+    if (email.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+      email.closest('.form-group').classList.add('has-error');
+      document.getElementById('memberEmailError').textContent = 'Please enter a valid email address.';
+      valid = false;
+    }
+
+    // LinkedIn format (optional field, only validated if filled in)
+    const li = document.getElementById('memberLinkedin');
+    if (li.value && !li.value.includes('linkedin.com')) {
+      li.closest('.form-group').classList.add('has-error');
+      valid = false;
+    }
+
+    if (!valid) {
+      document.getElementById('memberFormErrorBanner').style.display = 'block';
+      form.querySelector('.form-group.has-error input, .form-group.has-error select, .form-group.has-error textarea').focus();
+    }
+    return valid;
+  }
+
+  function showMemberState(stateId) {
+    document.getElementById('memberForm').style.display = 'none';
+    document.getElementById(stateId).classList.add('active');
+  }
+
+  function showMemberErrorBanner(msg) {
+    const banner = document.getElementById('memberFormErrorBanner');
     banner.textContent = msg;
     banner.style.display = 'block';
     banner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -2800,6 +2911,87 @@
           <div class="spinner"></div>
         </button>
         <p class="submit-note">Your application is sent to the Samyog team.<br>No spam, no third-party marketing.</p>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- MEMBER APPLICATION MODAL -->
+<div id="memberModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="memberModalTitle">
+  <div class="modal">
+    <button class="modal-close" onclick="closeMemberModal()" aria-label="Close">✕</button>
+
+    <!-- Success state -->
+    <div id="memberSuccessState" class="submission-state">
+      <div class="submission-icon">✅</div>
+      <h3>Thanks for reaching out!</h3>
+      <p>The Samyog team will review your interest and be in touch soon.</p>
+    </div>
+
+    <!-- Form -->
+    <form id="memberForm" novalidate>
+      <!-- Formspree hidden fields -->
+      <input type="hidden" name="_cc" value="vikram@ispirt.in,shyam@ispirt.in">
+      <input type="hidden" name="_subject" value="Samyog Membership Inquiry">
+      <input type="hidden" name="_replyto" id="memberReplyToMirror">
+
+      <div id="memberFormErrorBanner" style="display:none; background:rgba(248,113,113,0.1); border:1px solid rgba(248,113,113,0.3); border-radius:8px; padding:12px 16px; font-size:13px; color:#fca5a5; margin-bottom:20px;">
+        Please fill in all required fields before submitting.
+      </div>
+
+      <div class="modal-eyebrow">Samyog Membership</div>
+      <h2 id="memberModalTitle">Become a Member</h2>
+      <p class="modal-subtitle">Tell us how you'd like to support Samyog's mission</p>
+
+      <div class="form-section-label">About You</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="memberName">Full name <span class="required">*</span></label>
+          <input type="text" id="memberName" name="name" placeholder="Priya Sharma" autocomplete="name">
+          <span class="form-error-msg">Required</span>
+        </div>
+        <div class="form-group">
+          <label for="memberEmail">Email <span class="required">*</span></label>
+          <input type="email" id="memberEmail" name="email" placeholder="you@example.com" autocomplete="email"
+            oninput="document.getElementById('memberReplyToMirror').value=this.value">
+          <span class="form-error-msg" id="memberEmailError">Required</span>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="memberOrg">Organisation <span style="font-weight:400; letter-spacing:0; text-transform:none; font-size:11px; color:rgba(255,255,255,0.3);">— optional</span></label>
+          <input type="text" id="memberOrg" name="organisation" placeholder="Leave blank if joining as an individual">
+        </div>
+        <div class="form-group">
+          <label for="memberType">Joining as <span class="required">*</span></label>
+          <select id="memberType" name="member_type">
+            <option value="" disabled selected>Select one</option>
+            <option value="Individual member">Individual member</option>
+            <option value="Institutional member">Institutional member</option>
+          </select>
+          <span class="form-error-msg">Required</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="memberLinkedin">LinkedIn profile / organisation URL <span style="font-weight:400; letter-spacing:0; text-transform:none; font-size:11px; color:rgba(255,255,255,0.3);">— optional</span></label>
+        <input type="url" id="memberLinkedin" name="linkedin" placeholder="https://linkedin.com/in/yourprofile">
+        <span class="form-error-msg">Please enter a valid LinkedIn URL.</span>
+      </div>
+
+      <div class="form-group">
+        <label for="memberMessage">How would you like to support Samyog? <span class="required">*</span></label>
+        <textarea id="memberMessage" name="message" placeholder="Tell us about your interest in Samyog's mission and how you'd like to be involved…" rows="4"></textarea>
+        <span class="form-error-msg">Required</span>
+      </div>
+
+      <div class="form-submit-row">
+        <button type="submit" class="btn-submit">
+          <span class="btn-text">Submit</span>
+          <div class="spinner"></div>
+        </button>
+        <p class="submit-note">Your message is sent to the Samyog team.<br>No spam, no third-party marketing.</p>
       </div>
     </form>
   </div>
