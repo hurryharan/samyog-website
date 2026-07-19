@@ -791,6 +791,38 @@
 
   .partner-card:hover { border-color: var(--teal); }
 
+  .partner-logo {
+    position: relative;
+    width: 56px;
+    height: 56px;
+    border-radius: 10px;
+    background: var(--cream);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .partner-logo img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 8px;
+    background: var(--white);
+  }
+
+  .partner-logo-fallback {
+    font-family: 'Fraunces', serif;
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--teal);
+  }
+
   .partner-card-badges {
     display: flex;
     gap: 8px;
@@ -2408,8 +2440,13 @@
     <div class="partners-group">
       <div class="partners-group-title">Empanelled Partners</div>
       <p class="partners-group-desc">Organisations that have completed Samyog's empanelment process, aligning their teams on DEPA adoption for a larger ecosystem of trusted AI training and inference.</p>
+      <!-- Drop partner logo files into resources/partners/<slug>.png|svg — cards fall back to initials until then -->
       <div class="partners-grid">
         <div class="partner-card">
+          <div class="partner-logo">
+            <img src="resources/partners/aonami.png" alt="Aonami Technologies logo" onerror="this.style.display='none';">
+            <span class="partner-logo-fallback">AT</span>
+          </div>
           <div class="partner-card-badges">
             <span class="role-badge role-badge-tsp">TSP</span>
             <span class="role-badge role-badge-tdc">TDC</span>
@@ -2419,6 +2456,10 @@
           <a href="https://www.linkedin.com/posts/samyog_samyog-ispirt-dpi-activity-7483867181126942720-NRH1/" target="_blank" class="partner-card-link">Announcement →</a>
         </div>
         <div class="partner-card">
+          <div class="partner-logo">
+            <img src="resources/partners/navigrow.png" alt="Navigrow Consulting logo" onerror="this.style.display='none';">
+            <span class="partner-logo-fallback">NC</span>
+          </div>
           <div class="partner-card-badges">
             <span class="role-badge role-badge-tsp">TSP</span>
           </div>
