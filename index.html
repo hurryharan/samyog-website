@@ -730,6 +730,125 @@
 
   .team-card a:hover .team-name { color: var(--teal); }
 
+  /* PARTNERS & MEMBERS */
+  .partners { background: var(--cream); }
+
+  .partners-lead-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px;
+    margin-bottom: 56px;
+  }
+
+  .partners-group {
+    padding-top: 48px;
+    border-top: 1px solid var(--border);
+    margin-top: 48px;
+  }
+
+  .partners-group:first-of-type { padding-top: 0; border-top: none; margin-top: 0; }
+
+  .partners-group-title {
+    font-family: 'Fraunces', serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+
+  .partners-group-desc {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.6;
+    max-width: 620px;
+    margin-bottom: 28px;
+  }
+
+  .partners-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .partner-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.2s;
+  }
+
+  .partner-card:hover { border-color: var(--teal); }
+
+  .partner-card-badges {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+  }
+
+  .role-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 100px;
+  }
+
+  .role-badge-tsp { background: rgba(26,107,107,0.12); color: var(--teal); }
+  .role-badge-tdp { background: rgba(200,134,10,0.14); color: var(--gold); }
+  .role-badge-tdc { background: rgba(15,25,35,0.08); color: var(--ink); }
+
+  .partner-card h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 19px;
+    font-weight: 400;
+    margin-bottom: 10px;
+  }
+
+  .partner-card p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.65;
+    margin-bottom: 20px;
+    flex-grow: 1;
+  }
+
+  .partner-card-link {
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--teal);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(26,107,107,0.3);
+    padding-bottom: 2px;
+    align-self: flex-start;
+  }
+
+  .partner-card-link:hover { border-color: var(--teal); }
+
+  .members-placeholder {
+    background: var(--white);
+    border: 1px dashed var(--border);
+    border-radius: 12px;
+    padding: 40px 32px;
+    text-align: center;
+  }
+
+  .members-placeholder p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.65;
+    max-width: 520px;
+    margin: 0 auto 20px;
+  }
+
   /* ENGAGEMENT */
   .engagement {
     background: var(--teal);
@@ -1626,6 +1745,8 @@
     .lineage-track { flex-direction: column; gap: 12px; }
     .lineage-arrow { display: none; }
     .lineage-family { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .partners-grid { grid-template-columns: 1fr; }
+    .partners-lead-row { flex-direction: column; align-items: flex-start; gap: 16px; }
   }
 </style>
 </head>
@@ -1639,6 +1760,7 @@
     <li><a href="#fellowship">Fellowship</a></li>
     <li><a href="#resources">Resources</a></li>
     <li><a href="#team">Team</a></li>
+    <li><a href="#partners">Partners</a></li>
     <li><a href="#contact" class="nav-cta">Get in touch</a></li>
   </ul>
   <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
@@ -1650,6 +1772,7 @@
   <a href="#fellowship" class="mobile-link">Fellowship</a>
   <a href="#resources" class="mobile-link">Resources</a>
   <a href="#team" class="mobile-link">Team</a>
+  <a href="#partners" class="mobile-link">Partners</a>
   <a href="#contact" class="nav-cta mobile-link">Get in touch</a>
 </div>
 
@@ -2258,6 +2381,52 @@
           <img src="http://samyog.world/assets/img/Subodh.jpeg" alt="Prof. Subodh Sharma" class="team-avatar">
           <div class="team-name">Prof. Subodh Sharma</div>
         </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERS & MEMBERS -->
+<section id="partners" class="partners">
+  <div class="section-inner">
+    <div class="partners-lead-row">
+      <div>
+        <div class="section-eyebrow">Our Ecosystem</div>
+        <h2 class="section-title" style="margin-bottom:0;">Partners & Members<br>building Samyog</h2>
+      </div>
+      <p class="section-lead" style="margin-bottom:0; max-width:460px;">Samyog empanels Technical Service Providers (TSP), Training Data Providers (TDP), and Training Data Consumers (TDC) as partners, alongside members who support the ecosystem more broadly.</p>
+    </div>
+
+    <div class="partners-group">
+      <div class="partners-group-title">Empanelled Partners</div>
+      <p class="partners-group-desc">Organisations that have completed Samyog's empanelment process, aligning their teams on DEPA adoption for a larger ecosystem of trusted AI training and inference.</p>
+      <div class="partners-grid">
+        <div class="partner-card">
+          <div class="partner-card-badges">
+            <span class="role-badge role-badge-tsp">TSP</span>
+            <span class="role-badge role-badge-tdc">TDC</span>
+          </div>
+          <h4>Aonami Technologies Pvt. Ltd.</h4>
+          <p>Joined the Samyog partner ecosystem as a Technical Service Provider and Training Data Consumer, aligning on DEPA adoption for trusted AI training and inference on protected institutional data.</p>
+          <a href="https://www.linkedin.com/posts/samyog_samyog-ispirt-dpi-activity-7483867181126942720-NRH1/" target="_blank" class="partner-card-link">Announcement →</a>
+        </div>
+        <div class="partner-card">
+          <div class="partner-card-badges">
+            <span class="role-badge role-badge-tsp">TSP</span>
+          </div>
+          <h4>Navigrow Consulting</h4>
+          <p>Joined the Samyog partner ecosystem as a Technical Service Provider, aligning on DEPA adoption for trusted AI training and inference on protected institutional data.</p>
+          <a href="https://www.linkedin.com/posts/samyog-ispirt-dpi-share-7483846393334468608-TmG5/" target="_blank" class="partner-card-link">Announcement →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="partners-group">
+      <div class="partners-group-title">Members</div>
+      <p class="partners-group-desc">Beyond empanelled partners, Samyog is supported by members — institutions and individuals who back the ecosystem's mission without holding a formal TSP, TDP, or TDC role.</p>
+      <div class="members-placeholder">
+        <p>Member listings are being onboarded. If your organisation supports Samyog's mission, we'd love to have you on this page.</p>
+        <a href="mailto:info@samyog.world" class="btn-secondary">Become a member →</a>
       </div>
     </div>
   </div>
