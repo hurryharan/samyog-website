@@ -1788,6 +1788,30 @@
     .partners-grid { grid-template-columns: 1fr; }
     .partners-lead-row { flex-direction: column; align-items: flex-start; gap: 16px; }
   }
+
+  /* WATERMARK */
+  .watermark {
+    position: fixed;
+    inset: 0;
+    z-index: 9998;
+    pointer-events: none;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .watermark-text {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(28px, 5vw, 56px);
+    font-weight: 600;
+    color: var(--teal);
+    opacity: 0.07;
+    white-space: nowrap;
+    transform: rotate(-35deg);
+    letter-spacing: 0.04em;
+    user-select: none;
+  }
 </style>
 </head>
 <body>
@@ -3056,5 +3080,10 @@
     });
   });
 </script>
+
+<!-- WATERMARK -->
+<div class="watermark" aria-hidden="true">
+  <span class="watermark-text">Upcoming Industry Collective</span>
+</div>
 </body>
 </html>
